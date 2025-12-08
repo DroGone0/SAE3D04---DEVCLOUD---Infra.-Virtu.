@@ -1,3 +1,86 @@
+
++ APPEL DE DEUX PERSONNE POUR LEURS DEMANDER CE QUELS UTILISES
+
++ TOPO VMWARE (ESXI VMWARE)
+
++ VIRTUALISATION IMBRIQUE
+
++ PREMIERE PAGE SYNTHESE EN UNE PAGE
+
++ TABLEAU PERSONNEL SYNTHETIQUE CAMEMBERT
+
+
+CHOIX DES SOLUTIONS :
+
+1:2 serveur imbriquer ou pas avec sur chacun une kvm qui a chacun un : 
+    -Proxmox 
+    -Incut
+    
+Materiel: 2 serveur ProLian DL360 Gen10 Plus
+PID : P28948-B21
+S/N : CZJD020234
+
+
+
+
+3:Gestion de projet avec github
+
+4:Hackmd pour fichier partager 
+    -Document synthse
+    -Plusieur Document technique
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # 🌐 SAE D04 — Étude comparative des solutions de virtualisation  
 > [!NOTE]
 > Projet réalisé dans le cadre de la SAE D04 : étude, installation, comparaison technique et financière de deux solutions de virtualisation parmi Proxmox, Hyper-V et VMware VSAN.
