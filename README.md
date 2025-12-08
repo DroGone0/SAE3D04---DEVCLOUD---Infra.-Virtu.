@@ -1,11 +1,52 @@
+# [People] Onboarding new recruits
 
+:::info
+:bulb: This template is for onboarding new recruits. 
+:::
 
-# 🌐 **Synthèse comparative — VMware ESXi, Proxmox VE et Incus**
-*Comparaison technique des trois solutions étudiées dans le cadre du projet.*
+## 🎉 Welcome
 
-L’infrastructure initialement envisagée reposait sur **VMware ESXi**, hyperviseur réputé pour sa **stabilité** et son **adoption dans le monde professionnel**.  
-Au cours du projet, deux solutions alternatives ont été étudiées et déployées : **Proxmox VE**, environnement d’hypervision libre intégrant **virtualisation complète**, **conteneurs** et **capacités de clustering avancées**, et **Incus**, plateforme moderne de **conteneurisation système** dérivée de LXD.
+:::success
+Write a welcome for a new employee.
+:::
 
-Cette synthèse analyse les **fonctionnements**, **forces**, **limites** et **domaines d’usage** de ces trois technologies, afin de comprendre ce que chacune peut apporter — ou non — à une architecture virtuelle.
+Hi:smile: Welcome join `company name`!!
 
----
+## :book: Employee Information
+
+:::success
+List the essential information for this employee. You can add the item you need.
+:::
+
+### :small_blue_diamond: Department:
+### :small_blue_diamond: Manager:
+### :small_blue_diamond: Buddy:
+### :small_blue_diamond: Title:
+### :small_blue_diamond: Name:
+### :small_blue_diamond: ID:
+
+## :white_check_mark: Checklist
+
+:::success
+List the essential checklist for the new employee's onboarding process. Please modify it and create it yourself.
+:::
+
+### :small_orange_diamond: Day1 
+
+- [ ] Meet your colleagues
+- [ ] Meet your buddy
+- [ ] Introduce the company environment
+
+### :small_orange_diamond: Week1
+
+- [ ] Familiar with the flows and tools 
+- [ ] Watch the training video
+
+### :small_orange_diamond: Week2
+
+- [ ] One-on-one meeting with the manager
+
+### :small_orange_diamond: Month1
+
+-  [ ] Onboarding evaluation
+          
