@@ -24,3 +24,23 @@ La dépendance aux **licences** et l’écosystème **propriétaire** limitent l
 
 ---
 
+## **2. Proxmox VE — Une alternative complète, ouverte et polyvalente**
+
+Proxmox VE combine dans un même environnement :
+
+- un hyperviseur **KVM** pour la virtualisation complète,  
+- **LXC** pour la virtualisation légère,  
+- la gestion native du stockage **ZFS**,  
+- un **clustering intégré**,  
+- l’utilisation directe de **Ceph** pour le stockage distribué.
+
+Son fonctionnement repose entièrement sur des technologies **open‑source** éprouvées.  
+Contrairement à ESXi, Proxmox ne nécessite **aucun composant propriétaire** pour activer le **clustering**, la **migration de VM** ou la **haute disponibilité**.
+
+L'interface web est **moderne**, **centralisée** et **intuitive**, ce qui facilite la gestion de plusieurs nœuds.  
+La flexibilité de Proxmox est un atout : stockage hybride, intégration réseau avancée, gestion fine des conteneurs comme des machines virtuelles.
+
+Sa seule limite réelle réside dans une **consommation de ressources plus élevée** que celle d’un hyperviseur spécialisé, ainsi qu’une architecture parfois plus **complexe** à maîtriser lorsque l’on combine **cluster**, **Ceph** et **ZFS**.
+
+---
+
