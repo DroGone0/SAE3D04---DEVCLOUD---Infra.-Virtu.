@@ -44,3 +44,39 @@ Sa seule limite réelle réside dans une **consommation de ressources plus élev
 
 ---
 
+## **3. Incus — Conteneurisation système performante et flexible**
+
+Incus est un système de **system containers**, orienté vers la **virtualisation légère**.  
+Contrairement à ESXi et Proxmox, Incus ne propose **pas de virtualisation complète** : les conteneurs partagent **le noyau de l’hôte**.
+
+Cette approche permet une **efficacité exceptionnelle** :  
+- consommation **minimale** de ressources,  
+- démarrage **instantané**,  
+- déploiement **rapide en série**,  
+- snapshots **quasi immédiats**.
+
+Incus propose également des fonctionnalités avancées comme la **gestion de profils**, la **configuration réseau intégrée**, les **images cloud‑init**, et le **clustering multi‑nœuds**.
+
+En revanche, Incus ne peut pas exécuter des systèmes nécessitant **leur propre kernel** (Windows, appliances virtuelles, etc.).  
+Il ne remplace donc pas un **hyperviseur classique**.
+
+Son usage est idéal pour des environnements **DevOps**, des environnements de **test**, ou des déploiements massifs de conteneurs système, mais pas pour des workloads nécessitant une **isolation matérielle complète**.
+
+
+## Comparatif général des fonctionnalités
+
+| Critère                | **VMware ESXi**                                   | **Proxmox VE**                   | **Incus**                        |
+| ---------------------- | ------------------------------------------------- | -------------------------------- | -------------------------------- |
+| Type de virtualisation | **Virtualisation complète**                       | **KVM (VM) + LXC (conteneurs)**  | **Conteneurs système**           |
+| Licence                | Propriétaire (payant pour les fonctions avancées) | **Open‑source**                  | **Open‑source**                  |
+| Clustering             | ✔ Avec vCenter (payant)                           | **✔ Intégré nativement**         | ✔ Clustering conteneurs          |
+| Migration à chaud      | ✔ vMotion (payant)                                | **✔ Native, gratuite**           | N/A (pas de VM)                  |
+| Stockage distribué     | ✔ VSAN (licence)                                  | **✔ Ceph intégré**               | Support externe possible         |
+| Haute disponibilité    | ✔ Avec vCenter                                    | **✔ Proxmox HA (Ceph)**          | Limité aux conteneurs            |
+| Performances           | Excellentes                                       | Très bonnes                      | **Exceptionnelles (conteneurs)** |
+| Flexibilité            | Moyenne (écosystème fermé)                        | **Très élevée**                  | Très élevée                      |
+| Support OS invités     | Tous OS                                           | Tous OS                          | Linux uniquement (même kernel)   |
+| Idéal pour             | Production pro propriétaire                       | **Infra pro/éducative complète** | DevOps, labs, conteneurs         |
+
+
+---
