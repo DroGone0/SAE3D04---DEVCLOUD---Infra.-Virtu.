@@ -141,7 +141,6 @@ Cette configuration permettait une administration distante via navigateur :
 https://10.202.4.2
 
 
-📷 Capture à insérer : Administration ILO affichant l’adresse 10.202.4.2
 
 # 3. Nettoyage du stockage (RAID matériel)
 
@@ -156,7 +155,7 @@ Je les ai supprimés via l’outil RAID du BIOS afin de repartir sur un stockage
 
 garantir un système stable et propre.
 
-📷 Capture à insérer : RAID avant / après suppression
+
 
 # 4. Installation de Ubuntu Server
 
@@ -169,7 +168,6 @@ Partition EFI
 Partition /
 
 
-📷 Capture à insérer : ILO affichant ISO monté
 
 # 5. Configuration réseau du système Ubuntu
 
@@ -187,7 +185,7 @@ Une fois la configuration appliquée, on pouvait accéder au serveur en SSH :
 ssh titouan@10.202.4.69
 
 
-📷 Capture à insérer : ip addr ou Netplan confirmant l’IP 10.202.4.69
+
 
 6. Installation du démon Incus
 
@@ -209,7 +207,7 @@ sudo apt install incus
 sudo incus admin init
 
 
-📷 Capture à insérer : Installation Incus réussie dans le terminal
+
 
 ## Initialisation d’Incus
 
@@ -273,7 +271,7 @@ Ouverture du port sécurisé :
 sudo ufw allow 8443
 
 
-📷 Capture à insérer : ufw status montrant le port 8443 ouvert
+
 
 ## Accès à Incus UI
 
@@ -282,7 +280,7 @@ Une fois les certificats installés :
 https://10.202.4.69:8443/ui
 
 
-📷 Capture à insérer : Incus UI fonctionnel dans le navigateur
+
 
 8. Création d’instances (conteneurs et VM)
 
@@ -306,7 +304,7 @@ snapshots,
 
 gestion des ressources.
 
-📷 Capture à insérer : liste des instances dans Incus UI
+
 
 9. Schéma d’architecture globale
 
