@@ -192,8 +192,8 @@ L’architecture globale déployée reflète une infrastructure moderne, sécuri
          10.202.x.x │        │ 10.202.4.x
                     │        │
         ┌──────────────┐   ┌─────────────────────┐
-        │    TON PC    │   │   SERVEUR INCUS     │
-        │  (SSH / UI)  │   │ Ubuntu + Incus + UI │
+        │    PC        │   │   SERVEUR INCUS     │
+        │  (SSH / ILO) │   │ Ubuntu + Incus + UI │
         └──────────────┘   └─────────────────────┘
 
 
