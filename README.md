@@ -1,8 +1,9 @@
-
 lister les environnement les versions -  VIM  et PBS solution de sauvegarde - console centralisé
 facilité d'administration => fixer les critéres 
 sauvegarde faciliter d'amdin, cout, pourfaire quoi, ect(une vrai reflexion)
-
+Mode d'acces de nos vm +> NAT???, serveur WEB ? comment on peut y accéder a nos vm
+on peux faire du bridge du nat du macvtab ect ?? quels solutions reseau ?
+sriov pour avoir beaucoup de disque carte reseau ??
 
 
 # 🌐 **Synthèse comparative — VMware ESXi, Proxmox VE et Incus**
