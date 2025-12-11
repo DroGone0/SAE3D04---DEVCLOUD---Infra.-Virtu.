@@ -1,5 +1,7 @@
 
 lister les environnement les versions -  VIM  et PBS solution de sauvegarde - console centralisé
+facilité d'administration => fixer les critéres 
+sauvegarde faciliter d'amdin, cout, pourfaire quoi, ect(une vrai reflexion)
 
 
 
