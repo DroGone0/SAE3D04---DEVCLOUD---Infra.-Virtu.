@@ -1,4 +1,7 @@
 
+lister les environnement les versions -  VIM  et PBS solution de sauvegarde - console centralisé
+
+
 
 # 🌐 **Synthèse comparative — VMware ESXi, Proxmox VE et Incus**
 *Comparaison technique des trois solutions étudiées dans le cadre du projet.*
