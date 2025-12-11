@@ -4,6 +4,8 @@ sauvegarde faciliter d'amdin, cout, pourfaire quoi, ect(une vrai reflexion)
 Mode d'acces de nos vm +> NAT???, serveur WEB ? comment on peut y accéder a nos vm
 on peux faire du bridge du nat du macvtab ect ?? quels solutions reseau ?
 sriov pour avoir beaucoup de disque carte reseau ??
+quels sont les port de firewall que on vas devoir ouvrir
+
 
 
 # 🌐 **Synthèse comparative — VMware ESXi, Proxmox VE et Incus**
