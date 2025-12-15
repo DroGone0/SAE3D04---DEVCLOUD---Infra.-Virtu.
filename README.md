@@ -1,12 +1,10 @@
-lister les environnement les versions -  VIM  et PBS solution de sauvegarde - console centralisé
+pl=(plister les environnement les versions -  VIM  et PBS solution de sauvegarde - console centralisé
 facilité d'administration => fixer les critéres 
 sauvegarde faciliter d'amdin, cout, pourfaire quoi, ect(une vrai reflexion)
 Mode d'acces de nos vm +> NAT???, serveur WEB ? comment on peut y accéder a nos vm
 on peux faire du bridge du nat du macvtab ect ?? quels solutions reseau ?
 sriov pour avoir beaucoup de disque carte reseau ??
-quels sont les port de firewall que on vas devoir ouvrir
-
-
+quels sont les port de firewall que on vas devoir ouvrir^::dccccccccccc  
 
 | **Catégorie**                           | **Contraintes identifiées**                                                                                                                                                                              |
 | --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -20,6 +18,7 @@ quels sont les port de firewall que on vas devoir ouvrir
 | **Économie & contraintes pédagogiques** | - Coût très faible : éviter les solutions nécessitant une licence (ex : vCenter).<br>- Doit être installable sur du matériel virtualisé.<br>- Temps limité : solution simple à déployer et à configurer. |
 
 
+SOLUTIONS FINAL CHOISIS :
 
 Au regard des contraintes du projet (budget, pédagogie, flexibilité réseau, stockage distribué, haute disponibilité), Proxmox VE s’impose comme la solution la plus pertinente.
 Elle offre un compromis idéal entre fonctionnalités professionnelles, simplicité d’administration, compatibilité large, robustesse et absence de coûts de licence.
