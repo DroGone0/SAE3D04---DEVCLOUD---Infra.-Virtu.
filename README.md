@@ -1,10 +1,4 @@
-pl=(plister les environnement les versions -  VIM  et PBS solution de sauvegarde - console centralisé
-facilité d'administration => fixer les critéres 
-sauvegarde faciliter d'amdin, cout, pourfaire quoi, ect(une vrai reflexion)
-Mode d'acces de nos vm +> NAT???, serveur WEB ? comment on peut y accéder a nos vm
-on peux faire du bridge du nat du macvtab ect ?? quels solutions reseau ?
-sriov pour avoir beaucoup de disque carte reseau ??
-quels sont les port de firewall que on vas devoir ouvrir^::dccccccccccc  
+TABLEAU DES CONTRAINTES : 
 
 | **Catégorie**                           | **Contraintes identifiées**                                                                                                                                                                              |
 | --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -18,7 +12,7 @@ quels sont les port de firewall que on vas devoir ouvrir^::dccccccccccc
 | **Économie & contraintes pédagogiques** | - Coût très faible : éviter les solutions nécessitant une licence (ex : vCenter).<br>- Doit être installable sur du matériel virtualisé.<br>- Temps limité : solution simple à déployer et à configurer. |
 
 
-SOLUTIONS FINAL CHOISIS :
+SOLUTIONS FINAL CHOISIS - SYNTHESE DES SOLUTIONS:
 
 Au regard des contraintes du projet (budget, pédagogie, flexibilité réseau, stockage distribué, haute disponibilité), Proxmox VE s’impose comme la solution la plus pertinente.
 Elle offre un compromis idéal entre fonctionnalités professionnelles, simplicité d’administration, compatibilité large, robustesse et absence de coûts de licence.
@@ -44,5 +38,39 @@ Proxmox VE est donc la solution retenue, car c’est la seule capable de satisfa
 | **Performance**             | Très élevée                                     | Très élevée                            | Excellente (containers)                       |
 | **Coût**                    | Élevé                                           | faible / gratuit                  | Gratuit                                       |
 | **Adapté à notre projet ?** | ❌ Trop cher, trop fermé                         | ✅ Parfaitement adapté                  | ❌ Trop limité                                 |
+
+
+
+DISCUSSION AVEC UN PRO :
+
+Lors de cet échange avec Kylian Toulliou, celui-ci a expliqué que l’infrastructure de l’entreprise repose historiquement sur VMware, une solution souvent imposée par les choix passés de l’organisation et largement déployée car elle répondait à l’ensemble des besoins de virtualisation. Toutefois, malgré sa maturité et sa stabilité, VMware est aujourd’hui progressivement abandonné en raison de son coût de licences jugé trop élevé, ce qui pousse l’entreprise à revoir sa stratégie. Dans cette optique, Proxmox est étudié comme une alternative sérieuse afin de libérer les licences VMware, avec une phase actuelle de découverte, d’analyse des fonctionnalités et de montée en compétences des équipes, d’autant plus que Proxmox propose des mécanismes proches de ceux de VMware. Il est perçu comme une solution efficace et relativement simple à utiliser, offrant de nombreuses possibilités, même si certaines opérations peuvent s’avérer plus complexes et nécessiter des manipulations techniques plus poussées. Concernant OpenStack, la solution n’est plus exploitée dans l’infrastructure, principalement par manque de compétences internes pour assurer sa maintenance et ses mises à jour, ce qui la rend peu adaptée au contexte de l’entreprise. Par ailleurs, Kylian Toulliou a souligné que l’entreprise utilise désormais Kubernetes de manière quasi quotidienne, y compris dans des contextes qui ne relèvent pas strictement de la virtualisation classique, afin de mutualiser les ressources, qu’il s’agisse de machines virtuelles ou de serveurs, et d’optimiser l’utilisation de l’infrastructure. Kubernetes est ainsi employé comme un levier de rationalisation des ressources et de réduction des coûts, en permettant une meilleure gestion des charges, une plus grande flexibilité et une exploitation plus efficace des capacités disponibles, s’inscrivant pleinement dans la stratégie globale d’optimisation et de modernisation de l’infrastructure de l’entreprise.
+
+
+
+Tableau comparatif des coûts : 
+
+Dans le cadre de notre projet, nous avons choisi de déployer une infrastructure composée de trois serveurs.
+Ce choix n’est pas arbitraire : plusieurs fonctionnalités essentielles exigent au minimum trois nœuds pour fonctionner correctement, notamment :
+
+    le cluster Proxmox (quorum stable à 3 nœuds),
+
+    le stockage distribué Ceph (au moins 3 OSD pour assurer la réplication),
+
+    la haute disponibilité (HA), qui nécessite au moins 2 nœuds actifs + 1 pour maintenir le quorum.
+
+Ainsi, pour pouvoir mettre en œuvre une architecture réellement résiliente, tolérante aux pannes et professionnelle, il est indispensable de comparer les solutions logicielles dans une configuration à trois serveurs.
+
+| **Élément évalué**                               | **VMware ESXi**                                                                     | **Proxmox VE**                                       | **Incus**                                          |
+| ------------------------------------------------ | ----------------------------------------------------------------------------------- | ---------------------------------------------------- | -------------------------------------------------- |
+| **Coût de base (hyperviseur)**                   | Gratuit (ESXi Free)                                                                 | 0 €                                                  | 0 €                                                |
+| **Gestion centralisée**                          | **vCenter Essentials — 600 € / an** (pack pour 3 serveurs)                          | Inclus → **0 €**                                     | 0 €                                                |
+| **Haute disponibilité (HA)**                     | Inclus uniquement avec **vSphere Essentials Plus — 5 000 € / an** (pack 3 serveurs) | Inclus → **0 €**                                     | Fonction limitée → **0 €**                         |
+| **Migration à chaud (vMotion)**                  | Inclus dans **Essentials Plus — 5 000 € / an**                                      | Inclus → **0 €**                                     | Non applicable                                     |
+| **Stockage distribué (vSAN / Ceph)**             | **vSAN Standard : ~6 000 € / an pour 3 serveurs CPU      | Ceph intégré → **0 €**                               | Non natif → 0 €                                    |
+| **Sauvegarde centralisée**                       | Outils tiers (Veeam) — **500 à 1 000 € / an**                                       | Proxmox Backup Server (open‑source) → **0 €**        | Snapshots → 0 €                                    |
+| **Support / mises à jour pro**                   | Inclus dans les licences VMware                                                     | Optionnel : **95 € / an / serveur** → **285 € / an** | Gratuit                                            |
+| **Coût total minimal (cluster sans vSAN)**       | **~5 000 € / an**                                                                   | **0 €**                                              | **0 €**                                            |
+| **Coût total complet (cluster + vSAN + backup)** | **~11 000 – 12 000 € / an**                                                         | **0 €** (ou 285 €/an avec support)                   | **0 €**                                            |
+| **Adapté au projet ?**                           | ❌ Non : coût annuel trop élevé                                                      | ✅ Oui : complet et gratuit                           | ❌ Non : ne supporte pas la virtualisation complète |
 
 
