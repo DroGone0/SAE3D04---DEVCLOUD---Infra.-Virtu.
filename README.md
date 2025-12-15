@@ -77,10 +77,12 @@ Lors de cet échange avec Kylian Toulliou, celui-ci a expliqué que l’infrastr
 
 REPARTITION DES TACHES :
 
+%%{init: {"pie": {"colors": ["#ff6384", "#36a2eb", "#ffcd56", "#4bc0c0"]}} }%%
 ```mermaid
 pie showData
     title Répartition des tâches
-    "Robin – Infra Proxmox/Ceph" : 40
-    "Xarys – Incus & conteneurs" : 30
-    "Doc & rapports" : 20
-    "Tests & métriques" : 10
+    "Robin – Proxmox" : 50
+    "Titouan – Incus" : 30
+    "Commun" : 20
+  
+
