@@ -76,13 +76,13 @@ Lors de cet échange avec Kylian Toulliou, celui-ci a expliqué que l’infrastr
 
 
 REPARTITION DES TACHES :
+```mermaid
 pie showData
     title Répartition des tâches
     "Robin – Proxmox/Ceph" : 40
     "Xarys – Incus" : 30
     "Documentation" : 20
-    "Tests" : 10
-
+    "Tests et métriques" : 10
 
 ### Répartition des tâches
 
