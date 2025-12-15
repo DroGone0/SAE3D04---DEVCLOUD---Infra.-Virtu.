@@ -8,6 +8,19 @@ quels sont les port de firewall que on vas devoir ouvrir
 
 
 
+| **Catégorie**                           | **Contraintes identifiées**                                                                                                                                                                              |
+| --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Technique – Virtualisation**          | - Support obligatoire de la virtualisation complète (VM Linux/Windows).<br>- Possibilité de créer un cluster à 3 nœuds.<br>- Gestion du stockage distribué et de la HA sans dépendre de licences.        |
+| **Technique – Stockage**                | - Besoin d’un stockage distribué tolérant aux pannes (Ceph).<br>- Performances minimales requises pour héberger plusieurs VM.<br>- Gestion simple des disques et des volumes.                            |
+| **Réseau**                              | - Support des modes réseau nécessaires : Bridge, NAT, VLAN, MACVLAN.<br>- Accessibilité des services (ex : serveurs web).<br>- Ouverture de ports spécifiques (Corosync, Ceph, UI, services).            |
+| **Haute disponibilité**                 | - Nécessite un stockage partagé ou distribué.<br>- Surveillance continue des nœuds.<br>- Migration ou redémarrage automatique des VM en cas de panne.                                                    |
+| **Administration**                      | - Interface web centralisée indispensable.<br>- Solution facile à maintenir dans un contexte pédagogique.<br>- Documentation claire + communauté active.                                                 |
+| **Sauvegarde**                          | - Compatibilité avec une solution de sauvegarde centralisée (PBS).<br>- Snapshots cohérents et restauration rapide.                                                                                      |
+| **Sécurité**                            | - Contrôle des accès.<br>- Gestion des ports réseau.<br>- Isolement réseau pour certaines VM.                                                                                                            |
+| **Économie & contraintes pédagogiques** | - Coût très faible : éviter les solutions nécessitant une licence (ex : vCenter).<br>- Doit être installable sur du matériel virtualisé.<br>- Temps limité : solution simple à déployer et à configurer. |
+
+
+
 # 🌐 **Synthèse comparative — VMware ESXi, Proxmox VE et Incus**
 *Comparaison technique des trois solutions étudiées dans le cadre du projet.*
 
