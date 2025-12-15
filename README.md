@@ -86,3 +86,13 @@ pie showData
     "Commun" : 20
   
 
+
+### Répartition des tâches
+
+| Tâche | Pourcentage | Visualisation |
+|------|-------------|---------------|
+| Proxmox / Ceph | 40% | ████████ |
+| Incus | 30% | ██████ |
+| Documentation | 20% | ████ |
+| Tests | 10% | ██ |
+
