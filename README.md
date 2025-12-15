@@ -40,13 +40,6 @@ Proxmox VE est donc la solution retenue, car c’est la seule capable de satisfa
 | **Adapté à notre projet ?** | ❌ Trop cher, trop fermé                         | ✅ Parfaitement adapté                  | ❌ Trop limité                                 |
 
 
-
-DISCUSSION AVEC UN PRO :
-
-Lors de cet échange avec Kylian Toulliou, celui-ci a expliqué que l’infrastructure de l’entreprise repose historiquement sur VMware, une solution souvent imposée par les choix passés de l’organisation et largement déployée car elle répondait à l’ensemble des besoins de virtualisation. Toutefois, malgré sa maturité et sa stabilité, VMware est aujourd’hui progressivement abandonné en raison de son coût de licences jugé trop élevé, ce qui pousse l’entreprise à revoir sa stratégie. Dans cette optique, Proxmox est étudié comme une alternative sérieuse afin de libérer les licences VMware, avec une phase actuelle de découverte, d’analyse des fonctionnalités et de montée en compétences des équipes, d’autant plus que Proxmox propose des mécanismes proches de ceux de VMware. Il est perçu comme une solution efficace et relativement simple à utiliser, offrant de nombreuses possibilités, même si certaines opérations peuvent s’avérer plus complexes et nécessiter des manipulations techniques plus poussées. Concernant OpenStack, la solution n’est plus exploitée dans l’infrastructure, principalement par manque de compétences internes pour assurer sa maintenance et ses mises à jour, ce qui la rend peu adaptée au contexte de l’entreprise. Par ailleurs, Kylian Toulliou a souligné que l’entreprise utilise désormais Kubernetes de manière quasi quotidienne, y compris dans des contextes qui ne relèvent pas strictement de la virtualisation classique, afin de mutualiser les ressources, qu’il s’agisse de machines virtuelles ou de serveurs, et d’optimiser l’utilisation de l’infrastructure. Kubernetes est ainsi employé comme un levier de rationalisation des ressources et de réduction des coûts, en permettant une meilleure gestion des charges, une plus grande flexibilité et une exploitation plus efficace des capacités disponibles, s’inscrivant pleinement dans la stratégie globale d’optimisation et de modernisation de l’infrastructure de l’entreprise.
-
-
-
 Tableau comparatif des coûts : 
 
 Dans le cadre de notre projet, nous avons choisi de déployer une infrastructure composée de trois serveurs.
@@ -74,3 +67,20 @@ Ainsi, pour pouvoir mettre en œuvre une architecture réellement résiliente, t
 | **Adapté au projet ?**                           | ❌ Non : coût annuel trop élevé                                                      | ✅ Oui : complet et gratuit                           | ❌ Non : ne supporte pas la virtualisation complète |
 
 
+
+
+
+DISCUSSION AVEC UN PRO :
+
+Lors de cet échange avec Kylian Toulliou, celui-ci a expliqué que l’infrastructure de l’entreprise repose historiquement sur VMware, une solution souvent imposée par les choix passés de l’organisation et largement déployée car elle répondait à l’ensemble des besoins de virtualisation. Toutefois, malgré sa maturité et sa stabilité, VMware est aujourd’hui progressivement abandonné en raison de son coût de licences jugé trop élevé, ce qui pousse l’entreprise à revoir sa stratégie. Dans cette optique, Proxmox est étudié comme une alternative sérieuse afin de libérer les licences VMware, avec une phase actuelle de découverte, d’analyse des fonctionnalités et de montée en compétences des équipes, d’autant plus que Proxmox propose des mécanismes proches de ceux de VMware. Il est perçu comme une solution efficace et relativement simple à utiliser, offrant de nombreuses possibilités, même si certaines opérations peuvent s’avérer plus complexes et nécessiter des manipulations techniques plus poussées. Concernant OpenStack, la solution n’est plus exploitée dans l’infrastructure, principalement par manque de compétences internes pour assurer sa maintenance et ses mises à jour, ce qui la rend peu adaptée au contexte de l’entreprise. Par ailleurs, Kylian Toulliou a souligné que l’entreprise utilise désormais Kubernetes de manière quasi quotidienne, y compris dans des contextes qui ne relèvent pas strictement de la virtualisation classique, afin de mutualiser les ressources, qu’il s’agisse de machines virtuelles ou de serveurs, et d’optimiser l’utilisation de l’infrastructure. Kubernetes est ainsi employé comme un levier de rationalisation des ressources et de réduction des coûts, en permettant une meilleure gestion des charges, une plus grande flexibilité et une exploitation plus efficace des capacités disponibles, s’inscrivant pleinement dans la stratégie globale d’optimisation et de modernisation de l’infrastructure de l’entreprise.
+
+
+REPARTITION DES TACHES :
+
+```mermaid
+pie showData
+    title Répartition des tâches
+    "Robin – Infra Proxmox/Ceph" : 40
+    "Xarys – Incus & conteneurs" : 30
+    "Doc & rapports" : 20
+    "Tests & métriques" : 10
