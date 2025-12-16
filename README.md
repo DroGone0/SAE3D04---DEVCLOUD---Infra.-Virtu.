@@ -68,7 +68,9 @@ Ainsi, pour pouvoir mettre en œuvre une architecture réellement résiliente, t
 
 
 
+DISCUSSION AVEC UN ANCIEN DE IUT :
 
+À la suite de cet échange avec Yohann Ansinelli, il ressort que dans son travail il se repose principalement sur deux solutions de virtualisation à savoir Proxmox et VMware, ce dernier étant administré via vCenter. L’utilisation conjointe de ces outils s’inscrit dans un contexte professionnel où la virtualisation joue un rôle central dans la gestion des infrastructures, aussi bien pour l’hébergement de machines virtuelles que pour l’administration centralisée des ressources. VMware demeure une solution largement utilisée pour sa robustesse, son écosystème mature et les fonctionnalités avancées offertes par vCenter, notamment en matière de gestion, de supervision et d’organisation des environnements virtualisés. En parallèle, Proxmox est également employé comme solution de virtualisation, appréciée pour sa flexibilité et son modèle économique plus accessible. Le choix entre ces deux technologies ne repose pas uniquement sur des critères techniques, mais également sur des considérations liées aux coûts de licences, aux compétences disponibles au sein des équipes et à l’existant de l’infrastructure. 
 
 DISCUSSION AVEC UN PRO :
 
