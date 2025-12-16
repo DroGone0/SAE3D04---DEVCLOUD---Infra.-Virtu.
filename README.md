@@ -1,4 +1,6 @@
-TABLEAU DES CONTRAINTES : 
+#  Projet SAE3D04 - Infrastructure de Virtualisation
+
+## Tableau des contraintes
 
 | **Catégorie**                           | **Contraintes identifiées**                                                                                                                                                                              |
 | --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -12,7 +14,7 @@ TABLEAU DES CONTRAINTES :
 | **Économie & contraintes pédagogiques** | - Coût très faible : éviter les solutions nécessitant une licence (ex : vCenter).<br>- Doit être installable sur du matériel virtualisé.<br>- Temps limité : solution simple à déployer et à configurer. |
 
 
-SOLUTIONS FINAL CHOISIS - SYNTHESE DES SOLUTIONS:
+##  Solutions finales choisies - Synthèse des solutions
 
 Au regard des contraintes du projet (budget, pédagogie, flexibilité réseau, stockage distribué, haute disponibilité), Proxmox VE s’impose comme la solution la plus pertinente.
 Elle offre un compromis idéal entre fonctionnalités professionnelles, simplicité d’administration, compatibilité large, robustesse et absence de coûts de licence.
@@ -40,7 +42,7 @@ Proxmox VE est donc la solution retenue, car c’est la seule capable de satisfa
 | **Adapté à notre projet ?** | Trop cher, trop fermé                           | Parfaitement adapté                    | Trop limité                                   |
 
 
-Tableau comparatif des coûts : 
+##  Tableau comparatif des coûts
 
 Dans le cadre de notre projet, nous avons choisi de déployer une infrastructure composée de trois serveurs.
 Ce choix n’est pas arbitraire : plusieurs fonctionnalités essentielles exigent au minimum trois nœuds pour fonctionner correctement, notamment :
@@ -68,22 +70,22 @@ Ainsi, pour pouvoir mettre en œuvre une architecture réellement résiliente, t
 
 
 
-DISCUSSION AVEC UN ANCIEN DE IUT :
+## Discussion avec un ancien de l'IUT
 
 À la suite de cet échange avec Yohann Ansinelli, il ressort que dans son travail il se repose principalement sur deux solutions de virtualisation à savoir Proxmox et VMware, ce dernier étant administré via vCenter. L’utilisation conjointe de ces outils s’inscrit dans un contexte professionnel où la virtualisation joue un rôle central dans la gestion des infrastructures, aussi bien pour l’hébergement de machines virtuelles que pour l’administration centralisée des ressources. VMware demeure une solution largement utilisée pour sa robustesse, son écosystème mature et les fonctionnalités avancées offertes par vCenter, notamment en matière de gestion, de supervision et d’organisation des environnements virtualisés. En parallèle, Proxmox est également employé comme solution de virtualisation, appréciée pour sa flexibilité et son modèle économique plus accessible. Le choix entre ces deux technologies ne repose pas uniquement sur des critères techniques, mais également sur des considérations liées aux coûts de licences, aux compétences disponibles au sein des équipes et à l’existant de l’infrastructure. 
 
-DISCUSSION AVEC UN PRO :
+##  Discussion avec un professionnel
 
 Lors de cet échange avec Kylian Toulliou, celui-ci a expliqué que l’infrastructure de l’entreprise repose historiquement sur VMware, une solution souvent imposée par les choix passés de l’organisation et largement déployée car elle répondait à l’ensemble des besoins de virtualisation. Toutefois, malgré sa maturité et sa stabilité, VMware est aujourd’hui progressivement abandonné en raison de son coût de licences jugé trop élevé, ce qui pousse l’entreprise à revoir sa stratégie. Dans cette optique, Proxmox est étudié comme une alternative sérieuse afin de libérer les licences VMware, avec une phase actuelle de découverte, d’analyse des fonctionnalités et de montée en compétences des équipes, d’autant plus que Proxmox propose des mécanismes proches de ceux de VMware. Il est perçu comme une solution efficace et relativement simple à utiliser, offrant de nombreuses possibilités, même si certaines opérations peuvent s’avérer plus complexes et nécessiter des manipulations techniques plus poussées. Concernant OpenStack, la solution n’est plus exploitée dans l’infrastructure, principalement par manque de compétences internes pour assurer sa maintenance et ses mises à jour, ce qui la rend peu adaptée au contexte de l’entreprise. Par ailleurs, Kylian Toulliou a souligné que l’entreprise utilise désormais Kubernetes de manière quasi quotidienne, y compris dans des contextes qui ne relèvent pas strictement de la virtualisation classique, afin de mutualiser les ressources, qu’il s’agisse de machines virtuelles ou de serveurs, et d’optimiser l’utilisation de l’infrastructure. Kubernetes est ainsi employé comme un levier de rationalisation des ressources et de réduction des coûts, en permettant une meilleure gestion des charges, une plus grande flexibilité et une exploitation plus efficace des capacités disponibles, s’inscrivant pleinement dans la stratégie globale d’optimisation et de modernisation de l’infrastructure de l’entreprise.
 
 
-REPARTITION GENERAL :
+##  Répartition générale des tâches
 
 ```mermaid
 pie showData
     title Répartition des tâches
-    "Robin – Proxmox" : 40
-    "Titouan – Incus" : 30
+    "Robin – Proxmox" : 36
+    "Titouan – Incus" : 34
     "Documentation" : 20
     "Commun" : 10
 ```
