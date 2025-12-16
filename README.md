@@ -36,8 +36,8 @@ Proxmox VE est donc la solution retenue, car c’est la seule capable de satisfa
 | **Sauvegarde**              | Outils tiers (Veeam, payants)                   | Proxmox Backup Server (PBS)            | Snapshots intégrés                            |
 | **Support OS invités**      | Tous OS                                         | Tous OS                                | Linux uniquement                              |
 | **Performance**             | Très élevée                                     | Très élevée                            | Excellente (containers)                       |
-| **Coût**                    | Élevé                                           | faible / gratuit                  | Gratuit                                       |
-| **Adapté à notre projet ?** | ❌ Trop cher, trop fermé                         | ✅ Parfaitement adapté                  | ❌ Trop limité                                 |
+| **Coût**                    | Élevé                                           | faible / gratuit                       | Gratuit                                       |
+| **Adapté à notre projet ?** | Trop cher, trop fermé                           | Parfaitement adapté                    | Trop limité                                   |
 
 
 Tableau comparatif des coûts : 
@@ -64,7 +64,7 @@ Ainsi, pour pouvoir mettre en œuvre une architecture réellement résiliente, t
 | **Support / mises à jour pro**                   | Inclus dans les licences VMware                                                     | Optionnel : **95 € / an / serveur** → **285 € / an** | Gratuit                                            |
 | **Coût total minimal (cluster sans vSAN)**       | **~5 000 € / an**                                                                   | **0 €**                                              | **0 €**                                            |
 | **Coût total complet (cluster + vSAN + backup)** | **~11 000 – 12 000 € / an**                                                         | **0 €** (ou 285 €/an avec support)                   | **0 €**                                            |
-| **Adapté au projet ?**                           | ❌ Non : coût annuel trop élevé                                                      | ✅ Oui : complet et gratuit                           | ❌ Non : ne supporte pas la virtualisation complète |
+| **Adapté au projet ?**                           |   Non : coût annuel trop élevé                                                      |   Oui : complet et gratuit                           |  Non : ne supporte pas la virtualisation complète |
 
 
 
