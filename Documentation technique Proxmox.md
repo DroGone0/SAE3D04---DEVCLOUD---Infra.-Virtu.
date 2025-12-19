@@ -47,7 +47,9 @@ Lors de la phase d’installation de Proxmox, nous avons :
     on a utilisé le stockage type ZFS/LVM tel que proposé par défaut
     pour pouvoir ensuite créer un pool qui servira aux futures VM).
 
-    ![Écran de sélection du disque système dans l'installateur Proxmox](image proxmox/creation ZFS.jpg)
+<div align="center">
+<img src="image proxmox/creation ZFS.jpg" alt="Écran de sélection du disque système dans l'installateur Proxmox" width="600" style="border-radius: 5px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin: 10px 0;">
+</div>
 
 Ce choix de stockage est important, car plus tard, c’est sur ce même stockage que nous avons créé les disques des nœuds virtuels (pve‑vm1, pve‑vm2, pve‑vm3) ainsi que le disque OSD pour Ceph.
 1.3. Installation de Proxmox VE depuis l’ISO
@@ -61,7 +63,9 @@ Une fois l’accès à la console restauré et le disque choisi, nous avons proc
     Sur l’écran d’accueil, sélection de :
     “Install Proxmox VE”.
 
-    ![Écran d'accueil de l'installateur Proxmox VE](image proxmox/installation proxmox.jpg)
+<div align="center">
+<img src="image proxmox/installation proxmox.jpg" alt="Écran d'accueil de l'installateur Proxmox VE" width="600" style="border-radius: 5px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin: 10px 0;">
+</div>
 
 Lors de cette première tentative d’installation, nous avons rencontré une anomalie importante : l’installateur Proxmox n’affichait aucun des disques physiques du serveur.
 Après plusieurs vérifications, nous avons constaté que le problème provenait du RAID matériel encore actif sur le contrôleur du serveur. Les disques étaient regroupés en un volume RAID propriétaire que Proxmox ne pouvait pas exploiter directement.
@@ -77,7 +81,9 @@ Pour corriger ce problème, nous avons :
 
     redémarré l’installateur Proxmox.
 
-    ![Écran du contrôleur RAID / suppression du volume RAID](image proxmox/retire le raid matériel a partir de l'interface ilo.jpg)
+<div align="center">
+<img src="image proxmox/retire le raid matériel a partir de l'interface ilo.jpg" alt="Écran du contrôleur RAID / suppression du volume RAID" width="600" style="border-radius: 5px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin: 10px 0;">
+</div>
 
 Une fois le RAID désactivé, l’ensemble des disques physiques est apparu correctement dans l’installateur, ce qui nous a permis de poursuivre la procédure normale d’installation.
 Cet incident nous a permis de comprendre l’impact du RAID matériel dans une configuration destinée à accueillir des solutions comme Ceph, qui exigent un accès direct aux disques.
@@ -195,7 +201,9 @@ Nous avons donc revu la configuration du stockage afin de :
 
     garantir une base stable pour les étapes suivantes.
 
-![Stockage insuffisant lors des premières tentatives](image proxmox/taille disque cluster terminal.png)
+<div align="center">
+<img src="image proxmox/taille disque cluster terminal.png" alt="Stockage insuffisant lors des premières tentatives" width="600" style="border-radius: 5px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin: 10px 0;">
+</div>
 
 2.2. Installation du nœud Proxmox pve2
 Une fois le stockage corrigé, nous avons procédé à l’installation du second nœud, pve2.
@@ -246,7 +254,9 @@ Pour corriger cela, nous avons :
 
     redémarré les services concernés pour appliquer les modifications.
 
-![Stockage disponible après correction](image proxmox/taille disque cluster.png)
+<div align="center">
+<img src="image proxmox/taille disque cluster.png" alt="Stockage disponible après correction" width="600" style="border-radius: 5px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin: 10px 0;">
+</div>
 
 Ces ajustements ont permis de stabiliser définitivement l’environnement et de préparer correctement la mise en place de Ceph.
 
@@ -302,7 +312,9 @@ Depuis l’interface web de pve1, nous avons :
 
     validé les paramètres réseau proposés par défaut pour Corosync.
 
-![Création du cluster Proxmox sur pve1](image proxmox/creation du cluster.jpg)
+<div align="center">
+<img src="image proxmox/creation du cluster.jpg" alt="Création du cluster Proxmox sur pve1" width="600" style="border-radius: 5px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin: 10px 0;">
+</div>
 
 Une fois le cluster créé, pve1 devient le premier membre du cluster et peut accueillir les autres nœuds.
 
@@ -409,7 +421,9 @@ Les actions effectuées ont été :
 
     vérification du bon déploiement des services sur l’ensemble du cluster.
 
-![Installation de Ceph depuis l'interface Proxmox](image proxmox/installation ceph.jpg)
+<div align="center">
+<img src="image proxmox/installation ceph.jpg" alt="Installation de Ceph depuis l'interface Proxmox" width="600" style="border-radius: 5px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin: 10px 0;">
+</div>
 
 À l’issue de cette étape, le cluster Ceph était initialisé, mais aucun stockage n’était encore disponible tant que les OSD n’étaient pas créés.
 
@@ -424,7 +438,9 @@ Pour chaque serveur, nous avons :
 
     vérifié que l’OSD apparaissait correctement dans l’interface Proxmox.
 
-![Création d'un OSD sur pve1](image proxmox/mise en place du ceph.jpg)
+<div align="center">
+<img src="image proxmox/mise en place du ceph.jpg" alt="Création d'un OSD sur pve1" width="600" style="border-radius: 5px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin: 10px 0;">
+</div>
 
 Chaque nœud disposant de son propre OSD, les données sont automatiquement répliquées entre les serveurs selon la politique définie par Ceph.
 
@@ -439,8 +455,13 @@ Les actions réalisées ont été :
 
     vérification de la disponibilité du stockage pour la création de disques de VM.
 
-![Création du pool Ceph](image proxmox/creation ceph pool.jpg)
-![Stockage Ceph visible dans Proxmox](image proxmox/rbd.jpg)
+<div align="center">
+<img src="image proxmox/creation ceph pool.jpg" alt="Création du pool Ceph" width="600" style="border-radius: 5px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin: 10px 0;">
+</div>
+
+<div align="center">
+<img src="image proxmox/rbd.jpg" alt="Stockage Ceph visible dans Proxmox" width="600" style="border-radius: 5px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin: 10px 0;">
+</div>
 
 À partir de ce moment, Ceph pouvait être utilisé comme stockage principal pour les machines virtuelles du cluster.
 
@@ -534,7 +555,9 @@ Nous avons :
 
     contrôlé que chaque nœud était bien pris en compte par le gestionnaire HA.
 
-![Section HA dans l'interface Proxmox](image proxmox/menu HA.jpg)
+<div align="center">
+<img src="image proxmox/menu HA.jpg" alt="Section HA dans l'interface Proxmox" width="600" style="border-radius: 5px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin: 10px 0;">
+</div>
 
 À ce stade, l’infrastructure était prête à accueillir des machines virtuelles en haute disponibilité.
 
@@ -550,7 +573,9 @@ Les actions réalisées ont été :
 
     définition des paramètres de comportement (priorité, redémarrage automatique).
 
-![Ajout d'une VM dans la configuration HA](image proxmox/creation vm dans pve1.jpg)
+<div align="center">
+<img src="image proxmox/creation vm dans pve1.jpg" alt="Ajout d'une VM dans la configuration HA" width="600" style="border-radius: 5px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin: 10px 0;">
+</div>
 
 Une fois la VM ajoutée, elle est désormais surveillée en permanence par le gestionnaire HA.
 
@@ -645,7 +670,9 @@ Avant de lancer les tests, nous avons vérifié que :
 
 les ressources CPU et RAM étaient disponibles sur les nœuds cibles.
 
-![VM utilisant le stockage Ceph](image proxmox/changement des repository pour le ceph.jpg)
+<div align="center">
+<img src="image proxmox/changement des repository pour le ceph.jpg" alt="VM utilisant le stockage Ceph" width="600" style="border-radius: 5px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin: 10px 0;">
+</div>
 
 6.3. Lancement d’une migration à chaud
 
@@ -720,7 +747,9 @@ Nous avons utilisé ce bridge comme base pour :
 
     la communication Corosync et Ceph.
 
-![Configuration du bridge vmbr0](image proxmox/mise en place vmbr0.jpg)
+<div align="center">
+<img src="image proxmox/mise en place vmbr0.jpg" alt="Configuration du bridge vmbr0" width="600" style="border-radius: 5px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin: 10px 0;">
+</div>
 
 7.3. Mise en place du SDN au niveau du Datacenter
 
