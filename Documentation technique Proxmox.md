@@ -26,7 +26,6 @@ Comme nous avions besoin de la console distante pour booter sur l’ISO Proxmox 
     Reconfiguration minimale (adresse IP d’admin, masque,
     passerelle) pour y accéder depuis notre poste.
 
-    [ Capture : interface d’administration distante après reset / page de login ]
 
 Une fois l’accès restauré, nous pouvions agir sur le serveur comme si nous étions devant l’écran et le clavier.
 1.2. Préparation des disques et choix de l’architecture de stockage
@@ -48,7 +47,7 @@ Lors de la phase d’installation de Proxmox, nous avons :
     on a utilisé le stockage type ZFS/LVM tel que proposé par défaut
     pour pouvoir ensuite créer un pool qui servira aux futures VM).
 
-    [ Capture : écran de sélection du disque système dans l’installateur Proxmox ]
+    ![Écran de sélection du disque système dans l'installateur Proxmox](image proxmox/creation ZFS.jpg)
 
 Ce choix de stockage est important, car plus tard, c’est sur ce même stockage que nous avons créé les disques des nœuds virtuels (pve‑vm1, pve‑vm2, pve‑vm3) ainsi que le disque OSD pour Ceph.
 1.3. Installation de Proxmox VE depuis l’ISO
@@ -62,7 +61,7 @@ Une fois l’accès à la console restauré et le disque choisi, nous avons proc
     Sur l’écran d’accueil, sélection de :
     “Install Proxmox VE”.
 
-    [ Capture : écran d’accueil de l’installateur Proxmox VE ]
+    ![Écran d'accueil de l'installateur Proxmox VE](image proxmox/installation proxmox.jpg)
 
 Lors de cette première tentative d’installation, nous avons rencontré une anomalie importante : l’installateur Proxmox n’affichait aucun des disques physiques du serveur.
 Après plusieurs vérifications, nous avons constaté que le problème provenait du RAID matériel encore actif sur le contrôleur du serveur. Les disques étaient regroupés en un volume RAID propriétaire que Proxmox ne pouvait pas exploiter directement.
@@ -78,7 +77,7 @@ Pour corriger ce problème, nous avons :
 
     redémarré l’installateur Proxmox.
 
-    [ Capture : écran du contrôleur RAID / suppression du volume RAID ]
+    ![Écran du contrôleur RAID / suppression du volume RAID](image proxmox/retire le raid matériel a partir de l'interface ilo.jpg)
 
 Une fois le RAID désactivé, l’ensemble des disques physiques est apparu correctement dans l’installateur, ce qui nous a permis de poursuivre la procédure normale d’installation.
 Cet incident nous a permis de comprendre l’impact du RAID matériel dans une configuration destinée à accueillir des solutions comme Ceph, qui exigent un accès direct aux disques.
@@ -93,7 +92,6 @@ Ensuite, nous avons suivi les étapes classiques de l’installateur :
 
     Définition du mot de passe root et de l’adresse e‑mail d’admin.
 
-    [ Capture : écran de configuration du mot de passe root et de l’e‑mail ]
 
 1.4. Configuration réseau de base du serveur (IP, passerelle, DNS)
 
@@ -108,8 +106,6 @@ Pendant l’installation, nous avons configuré l’adresse IP de gestion de Pro
 
     Définition du serveur DNS. 8.8.8.8
 
-    [ Capture : écran de configuration réseau de Proxmox dans l’installateur ]
-
 Cette étape est cruciale, car c’est elle qui permet ensuite d’accéder à l’interface Web via :
 
 https://10.202.4.31:8006
@@ -122,7 +118,6 @@ Après l’installation :
 
     Nous avons vérifié sur la console distante que Proxmox démarrait correctement
 
-    [ Capture : écran de login sur la console Proxmox après installation ]
 
     Depuis notre poste, nous avons ouvert un navigateur et saisi l’URL :
 
@@ -137,7 +132,6 @@ https://10.202.4.31:8006
 
     Mot de passe : celui défini à l’installation. (rootroot)
 
-    [ Capture : page de login Web de Proxmox VE ]
 
 Une fois connectés, nous avions accès à :
 
@@ -149,7 +143,6 @@ Une fois connectés, nous avions accès à :
 
     l’état général du système (CPU, RAM, stockage).
 
-    [ Capture : tableau de bord Proxmox après première connexion ]
 
 1.6. Vérifications techniques après installation
 
@@ -165,8 +158,6 @@ Avant d’aller plus loin, nous avons effectué quelques vérifications rapides 
     Que l’IP répond au ping depuis nos postes.
 
     Vérification des mises à jour disponibles (manque de licence)
-
-    [ Capture : écran “Disks” ou “Storage” montrant le stockage local disponible ]
 
 À ce stade, le serveur Proxmox “pve1” était opérationnel et prêt à héberger :
 
@@ -204,7 +195,7 @@ Nous avons donc revu la configuration du stockage afin de :
 
     garantir une base stable pour les étapes suivantes.
 
-[ Capture : stockage insuffisant lors des premières tentatives ]
+![Stockage insuffisant lors des premières tentatives](image proxmox/taille disque cluster terminal.png)
 
 2.2. Installation du nœud Proxmox pve2
 Une fois le stockage corrigé, nous avons procédé à l’installation du second nœud, pve2.
@@ -221,12 +212,9 @@ Les actions réalisées ont été les suivantes :
 
     définition d’un nom d’hôte unique (pve2).
 
-[ Capture : installation de Proxmox sur pve2 ]
-[ Capture : configuration réseau de pve2 ]
 
 Après l’installation, nous avons vérifié l’accès à l’interface web de pve2 afin de confirmer le bon fonctionnement du nœud.
 
-[ Capture : interface web de pve2 après installation ]
 
 2.3. Installation du nœud Proxmox pve3
 La mise en place du troisième nœud, pve3, a été réalisée en reproduisant exactement la même procédure que pour pve2.
@@ -243,8 +231,6 @@ Pour pve3, nous avons :
 
     vérifié l’accès à l’interface d’administration.
 
-[ Capture : installation de Proxmox sur pve3 ]
-[ Capture : interface web de pve3 ]
 
 Cette homogénéité entre les trois nœuds est essentielle pour assurer la stabilité du cluster Proxmox.
 
@@ -260,8 +246,7 @@ Pour corriger cela, nous avons :
 
     redémarré les services concernés pour appliquer les modifications.
 
-[ Capture : commandes d’extension des volumes ]
-[ Capture : stockage disponible après correction ]
+![Stockage disponible après correction](image proxmox/taille disque cluster.png)
 
 Ces ajustements ont permis de stabiliser définitivement l’environnement et de préparer correctement la mise en place de Ceph.
 
@@ -317,8 +302,7 @@ Depuis l’interface web de pve1, nous avons :
 
     validé les paramètres réseau proposés par défaut pour Corosync.
 
-[ Capture : création du cluster Proxmox sur pve1 ]
-[ Capture : paramètres Corosync lors de la création du cluster ]
+![Création du cluster Proxmox sur pve1](image proxmox/creation du cluster.jpg)
 
 Une fois le cluster créé, pve1 devient le premier membre du cluster et peut accueillir les autres nœuds.
 
@@ -333,8 +317,6 @@ La procédure s’est déroulée comme suit :
 
     vérification de la connexion sécurisée entre les deux nœuds.
 
-[ Capture : commande d’ajout du nœud pve2 ]
-[ Capture : confirmation de l’ajout de pve2 dans le cluster ]
 
 Une fois l’opération terminée, pve2 apparaissait correctement dans l’arborescence du cluster au niveau du Datacenter.
 
@@ -349,8 +331,6 @@ Nous avons :
 
     vérifié l’état de synchronisation entre les trois nœuds.
 
-[ Capture : ajout du nœud pve3 au cluster ]
-[ Capture : vue du cluster avec pve1, pve2 et pve3 ]
 
 À ce stade, les trois nœuds Proxmox étaient membres du même cluster.
 
@@ -369,8 +349,6 @@ Ces vérifications ont été réalisées :
 
     et via des commandes système sur les nœuds.
 
-[ Capture : état du cluster dans l’interface Proxmox ]
-[ Capture : statut Corosync ]
 
 Le cluster étant composé de trois nœuds, le quorum était assuré même en cas de perte d’un nœud, ce qui est indispensable pour la stabilité de l’infrastructure.
 
@@ -417,7 +395,6 @@ Nous avons donc :
     confirmé que le RAID matériel était bien désactivé afin de permettre un accès
     direct aux disques (prérequis Ceph).
 
-[ Capture : vue des disques disponibles sur un nœud Proxmox ]
 
 Cette étape est essentielle, car Ceph nécessite un accès direct aux disques pour garantir ses performances et sa fiabilité.
 
@@ -432,8 +409,7 @@ Les actions effectuées ont été :
 
     vérification du bon déploiement des services sur l’ensemble du cluster.
 
-[ Capture : installation de Ceph depuis l’interface Proxmox ]
-[ Capture : état des services MON et MGR ]
+![Installation de Ceph depuis l'interface Proxmox](image proxmox/installation ceph.jpg)
 
 À l’issue de cette étape, le cluster Ceph était initialisé, mais aucun stockage n’était encore disponible tant que les OSD n’étaient pas créés.
 
@@ -448,8 +424,7 @@ Pour chaque serveur, nous avons :
 
     vérifié que l’OSD apparaissait correctement dans l’interface Proxmox.
 
-[ Capture : création d’un OSD sur pve1 ]
-[ Capture : liste des OSD sur l’ensemble du cluster ]
+![Création d'un OSD sur pve1](image proxmox/mise en place du ceph.jpg)
 
 Chaque nœud disposant de son propre OSD, les données sont automatiquement répliquées entre les serveurs selon la politique définie par Ceph.
 
@@ -464,8 +439,8 @@ Les actions réalisées ont été :
 
     vérification de la disponibilité du stockage pour la création de disques de VM.
 
-[ Capture : création du pool Ceph ]
-[ Capture : stockage Ceph visible dans Proxmox ]
+![Création du pool Ceph](image proxmox/creation ceph pool.jpg)
+![Stockage Ceph visible dans Proxmox](image proxmox/rbd.jpg)
 
 À partir de ce moment, Ceph pouvait être utilisé comme stockage principal pour les machines virtuelles du cluster.
 
@@ -484,7 +459,6 @@ Ces vérifications ont été réalisées :
 
     et à l’aide de commandes Ceph en ligne de commande.
 
-[ Capture : état de santé du cluster Ceph ]
 
 Cette étape permet de s’assurer que le stockage distribué est stable et prêt à être utilisé en production.
 
@@ -545,8 +519,6 @@ Avant d’activer la HA, nous avons vérifié que tous les prérequis étaient r
 
     le stockage Ceph était bien visible sur l’ensemble des nœuds.
 
-[ Capture : état du cluster Proxmox ]
-[ Capture : état de santé du cluster Ceph ]
 
 
 
@@ -562,7 +534,7 @@ Nous avons :
 
     contrôlé que chaque nœud était bien pris en compte par le gestionnaire HA.
 
-[ Capture : section HA dans l’interface Proxmox ]
+![Section HA dans l'interface Proxmox](image proxmox/menu HA.jpg)
 
 À ce stade, l’infrastructure était prête à accueillir des machines virtuelles en haute disponibilité.
 
@@ -578,7 +550,7 @@ Les actions réalisées ont été :
 
     définition des paramètres de comportement (priorité, redémarrage automatique).
 
-[ Capture : ajout d’une VM dans la configuration HA ]
+![Ajout d'une VM dans la configuration HA](image proxmox/creation vm dans pve1.jpg)
 
 Une fois la VM ajoutée, elle est désormais surveillée en permanence par le gestionnaire HA.
 
@@ -594,8 +566,6 @@ La procédure de test a consisté à :
 
     vérifier la relance automatique de la VM HA sur un autre nœud.
 
-[ Capture : arrêt du nœud en panne ]
-[ Capture : migration/redémarrage automatique de la VM ]
 
 Après quelques instants :
 
@@ -616,7 +586,6 @@ contrôlé l’état du quorum et de la HA,
 
 confirmé que la VM fonctionnait normalement sur son nouveau nœud.
 
-[ Capture : cluster rétabli avec les trois nœuds actifs ]
 
 Ce test a permis de valider le bon fonctionnement du mécanisme de haute disponibilité.
 
@@ -676,8 +645,7 @@ Avant de lancer les tests, nous avons vérifié que :
 
 les ressources CPU et RAM étaient disponibles sur les nœuds cibles.
 
-[ Capture : VM utilisant le stockage Ceph ]
-[ Capture : état du cluster avant migration ]
+![VM utilisant le stockage Ceph](image proxmox/changement des repository pour le ceph.jpg)
 
 6.3. Lancement d’une migration à chaud
 
@@ -689,7 +657,6 @@ Depuis l’interface web Proxmox, nous avons lancé une migration à chaud en :
 
     définissant le nœud de destination.
 
-[ Capture : lancement de la migration à chaud ]
 
 Pendant la migration :
 
@@ -709,7 +676,6 @@ Une fois la migration terminée, nous avons vérifié :
 
     que l’état du cluster était stable.
 
-[ Capture : VM exécutée sur le nœud cible ]
 
 
 7. Mise en place du SDN et configuration réseau
@@ -754,7 +720,7 @@ Nous avons utilisé ce bridge comme base pour :
 
     la communication Corosync et Ceph.
 
-[ Capture : configuration du bridge vmbr0 ]
+![Configuration du bridge vmbr0](image proxmox/mise en place vmbr0.jpg)
 
 7.3. Mise en place du SDN au niveau du Datacenter
 
@@ -768,7 +734,6 @@ Les actions réalisées ont été :
 
     association des bridges existants aux zones SDN.
 
-[ Capture : interface SDN dans Proxmox ]
 
 
 7.4. Configuration des réseaux pour les machines virtuelles
@@ -787,7 +752,6 @@ Cette configuration permet :
 
     de faciliter l’évolution future de l’infrastructure.
 
-[ Capture : configuration réseau d’une VM ]
 
 7.5. Vérification du fonctionnement réseau
 
@@ -807,7 +771,6 @@ Ces tests ont confirmé que :
 
     la configuration SDN était correctement appliquée sur tous les nœuds.
 
-[ Capture : test de connectivité réseau ]
 
 7.6. État de l’infrastructure après configuration de la migration et du SDN
 
