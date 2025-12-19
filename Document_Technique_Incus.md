@@ -1,7 +1,6 @@
 ---
 title: Document Technique - Déploiement Incus
 author: Titouan Mouysset
-date: 2024
 ---
 
 #  Document Technique - Incus
