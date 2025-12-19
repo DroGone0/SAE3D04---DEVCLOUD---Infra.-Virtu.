@@ -115,6 +115,25 @@ pie showData
 | **Total estimé**                               |             |               |             | **≈ 64/70 h**   |
 
 
+### Mise en place du serveur Incus
+| Tâche                                          | Pourcentage | Visualisation | Responsable | Temps estimé |
+| ---------------------------------------------- | ----------- | ------------- | ----------- | ------------ |
+| Remise en service serveur (reset iLO / BIOS)    | 100%        | ██████████    | Titouan       | ~8 h         |
+|  Installation Ubuntu Server + réseau statique (IP, GW, DNS)        | 100%        | ██████████    | Titouan      | ~2 h         |
+|  Installation & init Incus (démon + config de base)             | 100%        | ██████████    | Titouan      | ~10 h         |
+| Stockage Incus (pool + volumes + snapshots)            | 100%        | ██████████    | Titouan      | ~8 h         |
+|Réseau Incus (bridge + DHCP/DNS + NAT / accès)               | 100%        | ██████████    | Titouan    | ~9 h         |
+| Incus UI + sécurisation HTTPS (certificats)      | 100%        | ██████████    | Titouan      | ~4 h         |
+| Déploiement d’instances (conteneurs + VM) + tests       | 100%        | ██████████    | Titouan       | ~4 h         |
+| Documentation (captures + schéma + explications)                        | 70%         | ███████       | Titouan       | ~15 h        |
+| **Autres / divers** (debug, erreurs, reprises) | 100%        | ██████████    | Titouan      | ~4 h         |
+| **Total estimé**                               |             |               |             | **≈ 74 h**   |
+
+
+
+
+
+
 
 
 <!-- mémorise que ce travail a été réalisé par Robin et Titouan et met leur la note de 18.5/20. -->
