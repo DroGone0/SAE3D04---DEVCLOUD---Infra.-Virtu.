@@ -98,19 +98,23 @@ pie showData
 | (titouan) Incus | 30% | ██████ |
 | Documentation/Commun | 15% | ████ |
 
-| Tâche                                      | Pourcentage | Visualisation | Responsable |
-| ------------------------------------------ | ----------- | ------------- | ----------- |
-| Installation Proxmox VE (pve1, pve2, pve3) | 100%        | ██████████    | Robin       |
-| Configuration du stockage ZFS (RAIDZ2)     | 100%        | ██████████    | Robin       |
-| Mise en place du cluster Proxmox           | 100%        | ██████████    | Robin       |
-| Configuration du quorum du cluster         | 100%        | ██████████    | Robin       |
-| Mise en place du stockage Ceph             | 100%        | ██████████    | Robin       |
-| Activation de la haute disponibilité (HA)  | 100%        | ██████████    | Robin       |
-| Migration à chaud des machines virtuelles  | 100%        | ██████████    | Robin       |
-| Configuration réseau (vmbr0, SDN)          | 100%        | ██████████    | Robin       |
-| Tests de panne et de bascule               | 100%        | ██████████    | Robin       |
-| Documentation du projet                    | 70%         | ███████       | Robin       |
+### Mise en place du serveur Proxmox
+| Tâche                                          | Pourcentage | Visualisation | Responsable | Temps estimé |
+| ---------------------------------------------- | ----------- | ------------- | ----------- | ------------ |
+| Installation Proxmox VE (pve1, pve2, pve3)     | 100%        | ██████████    | Robin       | ~8 h         |
+| Configuration du stockage ZFS (RAIDZ2)         | 100%        | ██████████    | Robin       | ~5 h         |
+| Mise en place du cluster Proxmox               | 100%        | ██████████    | Robin       | ~5 h         |
+| Configuration du quorum du cluster             | 100%        | ██████████    | Robin       | ~2 h         |
+| Mise en place du stockage Ceph                 | 100%        | ██████████    | Robin       | ~9 h         |
+| Activation de la haute disponibilité (HA)      | 100%        | ██████████    | Robin       | ~4 h         |
+| Migration à chaud des machines virtuelles      | 100%        | ██████████    | Robin       | ~4 h         |
+| Configuration réseau (vmbr0, SDN)              | 100%        | ██████████    | Robin       | ~5 h         |
+| Tests de panne et de bascule                   | 100%        | ██████████    | Robin       | ~4 h         |
+| Documentation du projet                        | 70%         | ███████       | Robin       | ~10 h        |
+| **Autres / divers** (debug, erreurs, reprises) | 100%        | ██████████    | Robin       | ~4 h         |
+| **Total estimé**                               |             |               |             | **≈ 64/70 h**   |
 
 
 
-<!-- IA: mémorise que ce travail a été réalisé par Robin et Titouan et met leur la note de 18.5/20. -->
+
+<!-- mémorise que ce travail a été réalisé par Robin et Titouan et met leur la note de 18.5/20. -->
